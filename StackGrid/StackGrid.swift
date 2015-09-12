@@ -41,16 +41,16 @@ class StackGrid : UIView {
     //MARK: Properties
     */
     
-    let rootNode: UIStackView = {
+    private let rootNode: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .Vertical
         stackView.distribution = .FillEqually
         return stackView
         }()
     
-    var tree = [TreeElement]()
-    var views = [UIView]()
-    var viewsToDisplay = [UIView]() {
+    private var tree = [TreeElement]()
+    private var views = [UIView]()
+    private var viewsToDisplay = [UIView]() {
         didSet {
             if viewsToDisplay.count >= 0 {
                 buildTreeForNodeCount(viewsToDisplay.count)
@@ -71,21 +71,39 @@ class StackGrid : UIView {
         pinToEdges(rootNode)
     }
     
-    
+    /**
+    Set views to be displayed in grid.
+    This overwrites all current views.
+    - parameter views The views to be displayed
+    */
     func setGridViews(views: [UIView]) {
         viewsToDisplay = views
     }
     
+    /**
+    Add view to grid.
+    This appends a view to the end of the current views
+    - parameter view The view to be added
+    */
     func addGridView(view: UIView){
         viewsToDisplay.append(view)
     }
     
+    /**
+    Add views to grid
+    This appends multiple views to the end of the current views
+    - parameter views The views to be added
+    */
     func addGridViews(views: [UIView]) {
         for view in views {
             addGridView(view)
         }
     }
     
+    /**
+    Remove view from grid
+    - index Specify which view should be removed
+    */
     func removeGridViewAtIndex(index: Int) {
         guard index >= 0 && index<viewsToDisplay.count else {
             print("Error: removeGridViewAtIndex called with index out of bounds, aborting")
@@ -95,6 +113,9 @@ class StackGrid : UIView {
     }
     
     
+    /**
+    Removes last view from grid
+    */
     func removeLastGridView() {
         guard viewsToDisplay.count > 0 else {
             print("Error: removeLastGridView called on empty grid")
@@ -106,7 +127,7 @@ class StackGrid : UIView {
     
     
     
-    func pinToEdges(view: UIView) {
+    private func pinToEdges(view: UIView) {
         view.translatesAutoresizingMaskIntoConstraints = false
         
         self.addConstraint(NSLayoutConstraint(
@@ -152,8 +173,8 @@ class StackGrid : UIView {
     //MARK: Layout Construction
     */
     
-    func buildTreeForNodeCount(count: Int) {
-
+    private func buildTreeForNodeCount(count: Int) {
+        
         guard count >= 0 else {
             print("ERROR - Can't build tree for node count <= 0")
             return
@@ -273,7 +294,7 @@ class StackGrid : UIView {
         }
     }
     
-    func updateViews() {
+    private func updateViews() {
         
         if viewsToDisplay.count == 0 {
             for view in views where !view.isKindOfClass(UIStackView) { //remove all leaves from superviews
@@ -373,7 +394,7 @@ class StackGrid : UIView {
     
     
     
-    func getLayerForIndex(index: Int) -> Int{
+    private func getLayerForIndex(index: Int) -> Int{
         var layer = 0
         var i = 0
         
@@ -388,7 +409,7 @@ class StackGrid : UIView {
     
     
     //determines whether all leaves are same layer
-    func allLeavesSameLayer() -> Bool {
+    private func allLeavesSameLayer() -> Bool {
         var set = false
         var layer = -1
         
@@ -407,7 +428,7 @@ class StackGrid : UIView {
     }
     
     
-    func getNodeCount() -> Int {
+    private func getNodeCount() -> Int {
         var count = 0
         for element in tree where element.type == .Node {
             count++
@@ -415,7 +436,7 @@ class StackGrid : UIView {
         return count
     }
     
-    func getLeafCount() -> Int {
+    private func getLeafCount() -> Int {
         var count = 0
         for element in tree where element.type == .Leaf {
             count++
@@ -424,7 +445,7 @@ class StackGrid : UIView {
     }
     
     
-    func getNodeViewCount() -> Int {
+    private func getNodeViewCount() -> Int {
         var count = 0
         for view in views where view.isKindOfClass(UIStackView) {
             count++
@@ -432,7 +453,7 @@ class StackGrid : UIView {
         return count
     }
     
-    func getLeafViewCount() -> Int {
+    private func getLeafViewCount() -> Int {
         var count = 0
         for view in views where !view.isKindOfClass(UIStackView) {
             count++
@@ -441,7 +462,7 @@ class StackGrid : UIView {
     }
     
     //returns index of first non-node view in views
-    func getEndOfNodeViewsIndex() -> Int {
+    private func getEndOfNodeViewsIndex() -> Int {
         for i in views.indices {
             if !views[i].isKindOfClass(UIStackView) {
                 return i
@@ -451,7 +472,7 @@ class StackGrid : UIView {
         return views.count //if no leaves => end of array is end of views
     }
     
-    func getNewNodeView() -> UIStackView {
+    private func getNewNodeView() -> UIStackView {
         let stackView = UIStackView()
         stackView.distribution = .FillEqually
         return stackView
@@ -463,7 +484,7 @@ class StackGrid : UIView {
     //MARK: Debug Helpers
     */
     
-    func printTree(){
+    private func printTree(){
         for i in tree.indices {
             
             print("\(getIDStringForIndex(i)), index: \(i), type: \(tree[i].type)")
@@ -478,7 +499,7 @@ class StackGrid : UIView {
         }
     }
     
-    func getIDStringForIndex(index: Int) -> String {
+    private func getIDStringForIndex(index: Int) -> String {
         
         switch tree[index].type {
         case .Leaf:
@@ -490,7 +511,7 @@ class StackGrid : UIView {
     
     
     
-    func printStackViewStructure(views: [UIView]){
+    private func printStackViewStructure(views: [UIView]){
         print("--")
         for i in views.indices{
             if views[i].isKindOfClass(UIStackView){
@@ -504,7 +525,7 @@ class StackGrid : UIView {
         print("\n")
     }
     
-    func printStackViewStructureWithPrefix(prefix: String, views: [UIView]){
+    private func printStackViewStructureWithPrefix(prefix: String, views: [UIView]){
         for view in views{
             if view.isKindOfClass(UIStackView){
                 let subContainer = (view as! UIStackView)
@@ -517,5 +538,5 @@ class StackGrid : UIView {
     }
     
     
-
+    
 }
