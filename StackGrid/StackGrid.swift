@@ -52,7 +52,7 @@ class StackGrid : UIView {
     var views = [UIView]()
     var viewsToDisplay = [UIView]() {
         didSet {
-            if viewsToDisplay.count > 0 {
+            if viewsToDisplay.count >= 0 {
                 buildTreeForNodeCount(viewsToDisplay.count)
                 updateViews()
             }
@@ -154,13 +154,18 @@ class StackGrid : UIView {
     
     func buildTreeForNodeCount(count: Int) {
 
-        guard count > 0 else {
+        guard count >= 0 else {
             print("ERROR - Can't build tree for node count <= 0")
             return
         }
         
         //reset tree
         tree = [TreeElement]()
+        
+        if count == 0 { //return with empty tree
+            return
+        }
+        
         
         // add nodes to tree
         for _ in 0..<count {
@@ -269,6 +274,18 @@ class StackGrid : UIView {
     }
     
     func updateViews() {
+        
+        if viewsToDisplay.count == 0 {
+            for view in views where !view.isKindOfClass(UIStackView) { //remove all leaves from superviews
+                view.removeFromSuperview()
+            }
+            
+            //overwrite views
+            views = [rootNode]
+            
+            return
+        }
+        
         
         while getNodeCount() > getNodeViewCount() { //nodes have been added to tree
             views.insert(getNewNodeView(), atIndex: getEndOfNodeViewsIndex()) //add node view to end
