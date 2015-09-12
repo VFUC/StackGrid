@@ -68,14 +68,9 @@ class StackGrid : UIView {
     
     
     func setGridViews(views: [UIView]) {
-        let testView = UIView()
-        testView.backgroundColor = UIColor.purpleColor()
-        
-        let testView2 = UIView()
-        testView2.backgroundColor = UIColor.redColor()
-        
-        rootNode.addArrangedSubview(testView)
-        rootNode.addArrangedSubview(testView2)
+        for view in views {
+            rootNode.addArrangedSubview(view)
+        }
     }
     
     
