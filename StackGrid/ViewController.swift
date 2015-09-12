@@ -12,10 +12,15 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var grid: StackGrid!
     
+    var initialViewCount = 5
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        grid.setGridViews(createGradientViews(numOfViews: 5))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .Plain, target: self, action: "addButton")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "-", style: .Plain, target: self, action: "removeButton")
+        
+        grid.setGridViews(createGradientViews(numOfViews: initialViewCount))
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,5 +44,54 @@ class ViewController: UIViewController {
         
         return views
     }
+    
+    
+    func addButton(){
+        grid.addGridView(UIView.randomDefaultColorView())
+    }
+    
+    func removeButton(){
+        grid.removeLastGridView()
+    }
 }
 
+
+extension UIColor{
+    
+    class func randomColor() -> UIColor{
+        let red = CGFloat(arc4random_uniform(150)) / 255
+        let green = CGFloat(arc4random_uniform(150)) / 255
+        let blue = CGFloat(arc4random_uniform(150)) / 255
+        return UIColor(red: red, green: green, blue: blue, alpha: 1)
+    }
+    
+    class func randomDefaultColor() -> UIColor{
+        let defaultColors:[UIColor] = [
+            UIColor.redColor(),
+            UIColor.orangeColor(),
+            UIColor.yellowColor(),
+            UIColor.greenColor(),
+            UIColor.blueColor(),
+            UIColor.brownColor(),
+            UIColor.magentaColor(),
+            UIColor.purpleColor()
+        ]
+        
+        let randomIndex = Int(arc4random_uniform(UInt32(defaultColors.count)))
+        return defaultColors[randomIndex]
+    }
+}
+
+extension UIView{
+    class func randomColorView()->UIView{
+        let view = UIView()
+        view.backgroundColor = UIColor.randomColor()
+        return view
+    }
+    
+    class func randomDefaultColorView()->UIView{
+        let view = UIView()
+        view.backgroundColor = UIColor.randomDefaultColor()
+        return view
+    }
+}
