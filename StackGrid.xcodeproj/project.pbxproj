@@ -14,6 +14,8 @@
 		722B1E591BA3F6CA0072E4B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722B1E571BA3F6CA0072E4B6 /* LaunchScreen.storyboard */; };
 		722B1E641BA3F6CA0072E4B6 /* StackGridTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B1E631BA3F6CA0072E4B6 /* StackGridTests.swift */; };
 		722B1E6F1BA3F6CA0072E4B6 /* StackGridUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B1E6E1BA3F6CA0072E4B6 /* StackGridUITests.swift */; };
+		722B1E7D1BA3F7840072E4B6 /* StackGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B1E7C1BA3F7840072E4B6 /* StackGrid.swift */; settings = {ASSET_TAGS = (); }; };
+		722B1E7F1BA3F8670072E4B6 /* StackGrid-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B1E7E1BA3F8670072E4B6 /* StackGrid-Extensions.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		722B1E6A1BA3F6CA0072E4B6 /* StackGridUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StackGridUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		722B1E6E1BA3F6CA0072E4B6 /* StackGridUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackGridUITests.swift; sourceTree = "<group>"; };
 		722B1E701BA3F6CA0072E4B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		722B1E7C1BA3F7840072E4B6 /* StackGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackGrid.swift; sourceTree = "<group>"; };
+		722B1E7E1BA3F8670072E4B6 /* StackGrid-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StackGrid-Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			children = (
 				722B1E4E1BA3F6CA0072E4B6 /* AppDelegate.swift */,
 				722B1E501BA3F6CA0072E4B6 /* ViewController.swift */,
+				722B1E7C1BA3F7840072E4B6 /* StackGrid.swift */,
+				722B1E7E1BA3F8670072E4B6 /* StackGrid-Extensions.swift */,
 				722B1E521BA3F6CA0072E4B6 /* Main.storyboard */,
 				722B1E551BA3F6CA0072E4B6 /* Assets.xcassets */,
 				722B1E571BA3F6CA0072E4B6 /* LaunchScreen.storyboard */,
@@ -256,6 +262,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				722B1E511BA3F6CA0072E4B6 /* ViewController.swift in Sources */,
+				722B1E7D1BA3F7840072E4B6 /* StackGrid.swift in Sources */,
+				722B1E7F1BA3F8670072E4B6 /* StackGrid-Extensions.swift in Sources */,
 				722B1E4F1BA3F6CA0072E4B6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
