@@ -368,7 +368,30 @@ class StackGrid : UIView {
                     nodeView.addArrangedSubview(childView)
                 }
             }
-        }
+			
+			guard childViews.count == nodeView.arrangedSubviews.count else {
+				print("ERROR: ChildViews should contain same number of elements as arrangedSubviews")
+				return
+			}
+			
+			guard childViews.count <= 2 else {
+				print("ERROR: Node should not have more than 2 child views!")
+				return
+			}
+			
+			//check order of childViews
+			if childViews.count == 2 { //doesn't make sense with 1 view, we should never have more than 2
+				let childView = childViews[0]
+				let subViewIndex = nodeView.arrangedSubviews.indexOf(childView) //if the two indices are equal, the views are in order
+				
+				if subViewIndex != 0{ //not in order => swap
+					//swap by removing and adding to end
+					nodeView.removeArrangedSubview(childView)
+					nodeView.addArrangedSubview(childView)
+				}
+			}
+			
+		}
     }
     
     
