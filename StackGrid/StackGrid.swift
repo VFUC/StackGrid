@@ -45,6 +45,7 @@ class StackGrid : UIView {
         let stackView = UIStackView()
         stackView.axis = .Vertical
         stackView.distribution = .FillEqually
+		stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
         }()
     
@@ -401,14 +402,14 @@ class StackGrid : UIView {
 			}
 			
 			//check order of childViews
-			if childViews.count == 2 { //doesn't make sense with 1 view, we should never have more than 2
+			if childViews.count == 2 { //doesn't make sense with 1 view
 				let childView = childViews[0]
 				let subViewIndex = nodeView.arrangedSubviews.indexOf(childView) //if the two indices are equal, the views are in order
 				
-				if subViewIndex != 0{ //not in order => swap
-					//swap by removing and adding to end
-					nodeView.removeArrangedSubview(childView)
-					nodeView.addArrangedSubview(childView)
+				if subViewIndex != 0 { //not in order => swap
+					let view0 = nodeView.arrangedSubviews[0]
+					nodeView.removeArrangedSubview(view0) //swap by removing and appending
+					nodeView.addArrangedSubview(view0)
 				}
 			}
 			
@@ -497,6 +498,7 @@ class StackGrid : UIView {
     
     private func getNewNodeView() -> UIStackView {
         let stackView = UIStackView()
+		stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .FillEqually
         return stackView
     }
