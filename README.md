@@ -2,11 +2,11 @@
 
 StackGrid is a dynamic view container, which automatically distributes views according to available space.
 The end result looks something like this:
-![Demo](resources/StackGrid-demo.gif)
+![Demo](docs/resources/StackGrid-demo.gif)
 
 
 It is based on iOS 9's UIStackViews, nesting them into each other to achieve the desired result.
-To read more about the implementation read [IMPLEMENTATION.md](IMPLEMENTATION.md)
+To read more about the implementation read [IMPLEMENTATION.md](docs/IMPLEMENTATION.md)
 
 #Installation
 
