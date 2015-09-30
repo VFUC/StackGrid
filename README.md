@@ -9,6 +9,16 @@ It is based on iOS 9's UIStackViews, nesting them into each other to achieve the
 To read more about the implementation read [IMPLEMENTATION.md](docs/IMPLEMENTATION.md)
 
 #Installation
+###Using submodules
+If you're using git, you may run 
+
+**`git submodules add`**`git@github.com:VFUC/StackGrid.git`
+
+to clone the repo directly into yours.
+Add the files `StackGrid.swift` and `StackGrid-Extensions.swift` to your project (I'd suggest unchecking "copy items if needed", so you can pull updates to StackGrid later on).
+
+###Manual Copy
+Clone the repository somewhere or download it as ZIP archive. Add the files `StackGrid.swift` and `StackGrid-Extensions.swift` to your project.
 
 
 #Usage
