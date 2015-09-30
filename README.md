@@ -2,6 +2,7 @@
 
 StackGrid is a dynamic view container, which automatically distributes views according to available space.
 The end result looks something like this:
+
 ![Demo](docs/resources/StackGrid-demo.gif)
 
 
