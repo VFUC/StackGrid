@@ -25,25 +25,24 @@ Clone the repository somewhere or download it as ZIP archive. Add the files `Sta
 ##Usage
 Using StackGrid is easy - after instatiation the following methods are used to set and alter the grid's views:
 
-    
-    let grid = StackGrid()
-    
-    let aSingleView = UIView()
-    let multipleViews = [UIView(), UIView(), UIView()]
-    
-    // Sets views to be displayed, overwrites all current views
-    grid.setGridViews(multipleViews) 
+```Swift
+let grid = StackGrid()
 
-    // Appends view to the end of the current view stack
-    grid.addGridView(aSingleView)
+let aSingleView = UIView()
+let multipleViews = [UIView(), UIView(), UIView()]
 
-    // Appends multiple views
-    grid.addGridViews(multipleViews)
+// Sets views to be displayed, overwrites all current views
+grid.setGridViews(multipleViews) 
 
-    // Removes view from grid for a given index
-    grid.removeGridViewAtIndex(1)
+// Appends view to the end of the current view stack
+grid.addGridView(aSingleView)
 
-    // Removes last view from grid
-    grid.removeLastGridView()
-    
-        
+// Appends multiple views
+grid.addGridViews(multipleViews)
+
+// Removes view from grid for a given index
+grid.removeGridViewAtIndex(1)
+
+// Removes last view from grid
+grid.removeLastGridView()
+```
