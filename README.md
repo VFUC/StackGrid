@@ -25,29 +25,30 @@ Clone the repository somewhere or download it as ZIP archive. Add the files `Sta
 ##Usage
 Using StackGrid is easy - after instatiation the following methods are used to set and alter the grid's views:
 
-    
-    let grid = StackGrid()
-    
-    let aSingleView = UIView()
-    let multipleViews = [UIView(), UIView(), UIView()]
-    
-    // Sets views to be displayed, overwrites all current views
-    grid.setGridViews(multipleViews) 
 
-    // Appends view to the end of the current view stack
-    grid.addGridView(aSingleView)
+```Swift
+let grid = StackGrid()
 
-    // Appends multiple views
-    grid.addGridViews(multipleViews)
+let aSingleView = UIView()
+let multipleViews = [UIView(), UIView(), UIView()]
 
-    // Removes view from grid for a given index
-    grid.removeGridViewAtIndex(1)
+// Sets views to be displayed, overwrites all current views
+grid.setGridViews(multipleViews) 
 
-    // Removes last view from grid
-    grid.removeLastGridView()
+// Appends view to the end of the current view stack
+grid.addGridView(aSingleView)
 
-    // Set the root node orientation
-    // Vertical works best on screens with a Portrait-like dimensions, Horizontal for Landscape ones
-    grid.setRootAxis(.Horizontal)
-    grid.setRootAxis(.Vertical)    
-        
+// Appends multiple views
+grid.addGridViews(multipleViews)
+
+// Removes view from grid for a given index
+grid.removeGridViewAtIndex(1)
+
+// Removes last view from grid
+grid.removeLastGridView()
+
+// Set the root node orientation
+// Vertical works best on screens with a Portrait-like dimensions, Horizontal for Landscape ones
+grid.setRootAxis(.Horizontal)
+grid.setRootAxis(.Vertical) 
+```
