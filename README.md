@@ -45,5 +45,9 @@ Using StackGrid is easy - after instatiation the following methods are used to s
 
     // Removes last view from grid
     grid.removeLastGridView()
-    
+
+    // Set the root node orientation
+    // Vertical works best on screens with a Portrait-like dimensions, Horizontal for Landscape ones
+    grid.setRootAxis(.Horizontal)
+    grid.setRootAxis(.Vertical)    
         

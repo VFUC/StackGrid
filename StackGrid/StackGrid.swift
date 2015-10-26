@@ -71,7 +71,20 @@ class StackGrid : UIView {
         self.addSubview(rootNode)
         pinToEdges(rootNode)
     }
-    
+	
+	
+	/**
+	Set orientation of the root node's axis
+	- parameter axis The axis to apply to the root node
+	*/
+	func setRootAxis(axis: UILayoutConstraintAxis){
+		rootNode.axis = axis
+		if viewsToDisplay.count >= 0 {
+			buildTreeForNodeCount(viewsToDisplay.count)
+			updateViews()
+		}
+	}
+	
     /**
     Set views to be displayed in grid.
     This overwrites all current views.
