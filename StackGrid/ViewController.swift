@@ -43,12 +43,12 @@ class ViewController: UIViewController {
     }
     
     
-    func addButton(){
+    @objc func addButton(){
 		viewCount = viewCount + 1
         grid.setGridViews(createGradientViews(numOfViews: viewCount, color: purple))
     }
     
-    func removeButton(){
+    @objc func removeButton(){
 		viewCount = max(0, viewCount - 1) 
         grid.setGridViews(createGradientViews(numOfViews: viewCount, color: purple))
     }
