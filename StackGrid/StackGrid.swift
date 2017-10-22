@@ -8,11 +8,6 @@
 
 import UIKit
 
-
-/*
-//MARK: Types
-*/
-
 struct TreeElement {
     var type: TreeElementType
     var child1ViewIndex, child2ViewIndex : Int?
@@ -20,59 +15,45 @@ struct TreeElement {
     
     init(type: TreeElementType){
         self.type = type
-    }
-    
+	}
 }
 
-enum TreeElementType{
-    case Node
-    case Leaf
+enum TreeElementType {
+	case node
+	case leaf
 }
 
+class StackGrid: UIView {
 
-
-/*
-//MARK: - Class
-*/
-
-class StackGrid : UIView {
+    // MARK: Properties
     
-    /*
-    //MARK: Properties
-    */
-    
-    private let rootNode: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .Vertical
-        stackView.distribution = .FillEqually
+	private let rootNode: UIStackView = {
+		let stackView = UIStackView()
+		stackView.axis = .vertical
+		stackView.distribution = .fillEqually
 		stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-        }()
+		return stackView
+	}()
     
     private var tree = [TreeElement]()
     private var views = [UIView]()
     private var viewsToDisplay = [UIView]() {
         didSet {
             if viewsToDisplay.count >= 0 {
-                buildTreeForNodeCount(viewsToDisplay.count)
+				buildTree(forNodeCount: viewsToDisplay.count)
                 updateViews()
             }
         }
     }
     
-    
-    
-    
-    /*
-    //MARK: Methods
-    */
-    
-    override func drawRect(rect: CGRect) {
+
+    // MARK: Methods
+	override func draw(_ rect: CGRect) {
+		super.draw(rect)
         self.addSubview(rootNode)
-        pinToEdges(rootNode)
+		pinToEdges(view: rootNode)
     }
-	
-	
+
 	/**
 	Set orientation of the root node's axis
 	- parameter axis The axis to apply to the root node
@@ -80,7 +61,7 @@ class StackGrid : UIView {
 	func setRootAxis(axis: UILayoutConstraintAxis){
 		rootNode.axis = axis
 		if viewsToDisplay.count >= 0 {
-			buildTreeForNodeCount(viewsToDisplay.count)
+			buildTree(forNodeCount: viewsToDisplay.count)
 			updateViews()
 		}
 	}
@@ -90,7 +71,7 @@ class StackGrid : UIView {
     This overwrites all current views.
     - parameter views The views to be displayed
     */
-    func setGridViews(views: [UIView]) {
+    func setGridViews(_ views: [UIView]) {
         viewsToDisplay = views
     }
     
@@ -99,7 +80,7 @@ class StackGrid : UIView {
     This appends a view to the end of the current views
     - parameter view The view to be added
     */
-    func addGridView(view: UIView){
+    func addGridView(_ view: UIView){
         viewsToDisplay.append(view)
     }
     
@@ -108,7 +89,7 @@ class StackGrid : UIView {
     This appends multiple views to the end of the current views
     - parameter views The views to be added
     */
-    func addGridViews(views: [UIView]) {
+    func addGridViews(_ views: [UIView]) {
         for view in views {
             addGridView(view)
         }
@@ -118,18 +99,15 @@ class StackGrid : UIView {
     Remove view from grid
     - index Specify which view should be removed
     */
-    func removeGridViewAtIndex(index: Int) {
+	func removeGridView(at index: Int) {
         guard index >= 0 && index<viewsToDisplay.count else {
             print("Error: removeGridViewAtIndex called with index out of bounds, aborting")
             return
         }
-        viewsToDisplay.removeAtIndex(index)
+		viewsToDisplay.remove(at: index)
     }
-    
-    
-    /**
-    Removes last view from grid
-    */
+
+	/// Removes last view from grid
     func removeLastGridView() {
         guard viewsToDisplay.count > 0 else {
             print("Error: removeLastGridView called on empty grid")
@@ -138,45 +116,44 @@ class StackGrid : UIView {
         viewsToDisplay.removeLast()
     }
     
-    
-    
+
     
     private func pinToEdges(view: UIView) {
         view.translatesAutoresizingMaskIntoConstraints = false
         
         self.addConstraint(NSLayoutConstraint(
             item: view,
-            attribute: .Left,
-            relatedBy: .Equal,
+            attribute: .left,
+            relatedBy: .equal,
             toItem: self,
-            attribute: .Left,
+            attribute: .left,
             multiplier: 1,
             constant: 0))
         
         self.addConstraint(NSLayoutConstraint(
             item: view,
-            attribute: .Right,
-            relatedBy: .Equal,
+            attribute: .right,
+            relatedBy: .equal,
             toItem: self,
-            attribute: .Right,
+            attribute: .right,
             multiplier: 1,
             constant: 0))
         
         self.addConstraint(NSLayoutConstraint(
             item: view,
-            attribute: .Top,
-            relatedBy: .Equal,
+            attribute: .top,
+            relatedBy: .equal,
             toItem: self,
-            attribute: .Top,
+            attribute: .top,
             multiplier: 1,
             constant: 0))
         
         self.addConstraint(NSLayoutConstraint(
             item: view,
-            attribute: .Bottom,
-            relatedBy: .Equal,
+            attribute: .bottom,
+            relatedBy: .equal,
             toItem: self,
-            attribute: .Bottom,
+            attribute: .bottom,
             multiplier: 1,
             constant: 0))
     }
@@ -187,7 +164,7 @@ class StackGrid : UIView {
     //MARK: Layout Construction
     */
     
-    private func buildTreeForNodeCount(count: Int) {
+    private func buildTree(forNodeCount count: Int) {
         
         guard count >= 0 else {
             print("ERROR - Can't build tree for node count <= 0")
@@ -204,48 +181,48 @@ class StackGrid : UIView {
         
         // add nodes to tree
         for _ in 0..<count {
-            let node = TreeElement(type: .Node)
+            let node = TreeElement(type: .node)
             tree.append(node)
         }
         
         // add leaves to tree
         for _ in 0..<count {
-            let leaf = TreeElement(type: .Leaf)
+            let leaf = TreeElement(type: .leaf)
             tree.append(leaf)
         }
         
         
         
-        //attach nodes
-        //iterate over all nodes except for root node (is not attached to any node)
-        for i in 1..<tree.count where tree[i].type == .Node {
-            
-            //look for a node to attach to
-            for j in tree.indices where tree[i].type == .Node && i != j{
-                
-                //if inspected node has no child index yet, attach and stop looking
-                if tree[j].child1ViewIndex == nil {
-                    tree[j].child1ViewIndex = i
-                    tree[i].set = true
-                    break
-                }
-                
-                if tree[j].child2ViewIndex == nil{
-                    tree[j].child2ViewIndex = i
-                    tree[i].set = true
-                    break
-                }
-            }
-            
-            guard tree[i].set else {
-                print("ERROR - Couldn't attach node with index \(i) to other nodes")
-                return
-            }
+        // attach nodes
+        // iterate over all nodes except for root node (is not attached to any node)
+		for (i, element) in tree.enumerated() where element.type == .node && i > 0 {
+
+			//look for a node to attach to
+			for (j, subElement) in tree.enumerated() where subElement.type == .node && i != j {
+
+				//if inspected node has no child index yet, attach and stop looking
+				if tree[j].child1ViewIndex == nil {
+					tree[j].child1ViewIndex = i
+					tree[i].set = true
+					break
+				}
+
+				if tree[j].child2ViewIndex == nil {
+					tree[j].child2ViewIndex = i
+					tree[i].set = true
+					break
+				}
+			}
+
+			guard tree[i].set else {
+				print("ERROR - Couldn't attach node with index \(index) to other nodes")
+				return
+			}
         }
         
         
         //attach leaves
-        let firstLeafLayer = getLayerForIndex(count) //count = first leaf
+		let firstLeafLayer = getLayer(for: count) //count = first leaf
         let secondLeafLayer = allLeavesSameLayer() ? firstLeafLayer : firstLeafLayer + 1 //if all leaves same layer then both layers are same
         
         let firstNodeLayer = firstLeafLayer - 1
@@ -255,34 +232,31 @@ class StackGrid : UIView {
         //Fill up first leaf Layer backwards
         //iterate over all leaves, backwards
         if firstLeafLayer != secondLeafLayer {//only if layers are different, else skip right to forwards fill up!
-            
-            for i in tree.indices.reverse() where tree[i].type == .Leaf{
-                
-                //iterate over nodes on the correct layer, backwards
-                for j in tree.indices.reverse() where (tree[j].type == .Node) && (getLayerForIndex(j) == firstNodeLayer) {
-                    
-                    //attach if no child yet, do child2 first because we're filling up backwards
-                    if tree[j].child2ViewIndex == nil{
-                        tree[j].child2ViewIndex = i
-                        tree[i].set = true
-                        break
-                    }
-                    
-                    if tree[j].child1ViewIndex == nil {
-                        tree[j].child1ViewIndex = i
-                        tree[i].set = true
-                        break
-                    }
-                }
-            }
-            
+
+			for i in tree.indices.reversed() where tree[i].type == .leaf {
+				//iterate over nodes on the correct layer, backwards
+				for j in tree.indices.reversed() where tree[j].type == .node && getLayer(for: j) == firstNodeLayer {
+					//attach if no child yet, do child2 first because we're filling up backwards
+					if tree[j].child2ViewIndex == nil {
+						tree[j].child2ViewIndex = i
+						tree[i].set = true
+						break
+					}
+
+					if tree[j].child1ViewIndex == nil {
+						tree[j].child1ViewIndex = i
+						tree[i].set = true
+						break
+					}
+				}
+			}
         }
         
         //Fill up second leaf layer forwards
         //iterate over leaves which have not been set yet, forward
-        for i in 0..<tree.count where (tree[i].type == .Leaf) && !tree[i].set {
+        for i in 0..<tree.count where (tree[i].type == .leaf) && !tree[i].set {
             
-            for j in tree.indices where (tree[j].type == .Node) && (getLayerForIndex(j) == secondNodeLayer) {
+			for j in tree.indices where (tree[j].type == .node) && (getLayer(for: j) == secondNodeLayer) {
                 
                 //attach if no child yet
                 if tree[j].child1ViewIndex == nil {
@@ -311,7 +285,7 @@ class StackGrid : UIView {
     private func updateViews() {
         
         if viewsToDisplay.count == 0 {
-            for view in views where !view.isKindOfClass(UIStackView) { //remove all leaves from superviews
+            for view in views where !view.isKind(of: UIStackView.self) { //remove all leaves from superviews
                 view.removeFromSuperview()
             }
             
@@ -323,11 +297,11 @@ class StackGrid : UIView {
         
         
         while getNodeCount() > getNodeViewCount() { //nodes have been added to tree
-            views.insert(getNewNodeView(), atIndex: getEndOfNodeViewsIndex()) //add node view to end
+            views.insert(getNewNodeView(), at: getEndOfNodeViewsIndex()) //add node view to end
         }
         
         while getNodeViewCount() > getNodeCount() { //nodes have been removed from tree
-            views.removeAtIndex(getEndOfNodeViewsIndex() - 1) //remove node view from end
+			views.remove(at: getEndOfNodeViewsIndex() - 1) //remove node view from end
         }
         
         if views[0] != rootNode { //make sure root node is in place
@@ -336,13 +310,13 @@ class StackGrid : UIView {
         
         
         for i in 0..<getEndOfNodeViewsIndex() {
-            guard views[i].isKindOfClass(UIStackView) else{
+            guard views[i].isKind(of: UIStackView.self) else{
                 print("ERROR: View with index \(i) should be a node/stack view")
                 break
             }
             
             let nodeView = views[i] as! UIStackView
-            if getLayerForIndex(i) % 2 == 0 {
+			if getLayer(for: i) % 2 == 0 {
                 nodeView.axis = rootNode.axis
             } else {
                 nodeView.axis = rootNode.axis.inverse()
@@ -359,20 +333,19 @@ class StackGrid : UIView {
         for i in viewsToDisplay.indices {
             let nodeViewCount = getNodeViewCount()
             
-            if (nodeViewCount + i ) > views.count - 1 { //check if view at that index exists already, if not nodeViewCount + i would be > views.count - 1 and therefore out of bounds
-                views.insert(viewsToDisplay[i], atIndex: nodeViewCount + i) //if not append
+            if (nodeViewCount + i ) > views.count - 1 { // check if view at that index exists already, if not nodeViewCount + i would be > views.count - 1 and therefore out of bounds
+                views.insert(viewsToDisplay[i], at: nodeViewCount + i) // if not append
             } else {
-                if views[nodeViewCount + i] != viewsToDisplay[i] { //overwrite if different
+                if views[nodeViewCount + i] != viewsToDisplay[i] { // overwrite if different
                     views[nodeViewCount + i] = viewsToDisplay[i]
                 }
             }
         }
         
         
-        //views are now in place, need to be attached to each other
-        
-        for i in tree.indices where tree[i].type == .Node{
-            guard views[i].isKindOfClass(UIStackView) else {
+        // views are now in place, need to be attached to each other
+        for (i, element) in tree.enumerated() where element.type == .node{
+            guard views[i].isKind(of: UIStackView.self) else {
                 print("ERROR - View with index \(i) should be a Node/StackView!")
                 return
             }
@@ -417,7 +390,7 @@ class StackGrid : UIView {
 			//check order of childViews
 			if childViews.count == 2 { //doesn't make sense with 1 view
 				let childView = childViews[0]
-				let subViewIndex = nodeView.arrangedSubviews.indexOf(childView) //if the two indices are equal, the views are in order
+				let subViewIndex = nodeView.arrangedSubviews.index(of: childView) //if the two indices are equal, the views are in order
 				
 				if subViewIndex != 0 { //not in order => swap
 					let view0 = nodeView.arrangedSubviews[0]
@@ -431,16 +404,14 @@ class StackGrid : UIView {
     
     
     
-    private func getLayerForIndex(index: Int) -> Int{
+    private func getLayer(for index: Int) -> Int{
         var layer = 0
         var i = 0
         
-        while i < index{
-            i += Int(2 * pow(Double(2),Double(layer)))
-            
-            layer++
+        while i < index {
+            i = i + Int(2 * pow(Double(2), Double(layer)))
+            layer = layer + 1
         }
-        
         return layer
     }
     
@@ -450,12 +421,12 @@ class StackGrid : UIView {
         var set = false
         var layer = -1
         
-        for i in tree.indices where tree[i].type == .Leaf {
+        for (index, element) in tree.enumerated() where element.type == .leaf {
             if !set {
-                layer = getLayerForIndex(i)
+				layer = getLayer(for: index)
                 set = true
-            }else{
-                if getLayerForIndex(i) != layer {
+            } else {
+                if getLayer(for: index) != layer {
                     return false
                 }
             }
@@ -466,115 +437,70 @@ class StackGrid : UIView {
     
     
     private func getNodeCount() -> Int {
-        var count = 0
-        for element in tree where element.type == .Node {
-            count++
-        }
-        return count
+		return tree.filter({ $0.type == .node }).count
     }
     
     private func getLeafCount() -> Int {
-        var count = 0
-        for element in tree where element.type == .Leaf {
-            count++
-        }
-        return count
+		return tree.filter({ $0.type == .leaf }).count
     }
     
     
     private func getNodeViewCount() -> Int {
-        var count = 0
-        for view in views where view.isKindOfClass(UIStackView) {
-            count++
-        }
-        return count
+		return views.filter({ $0 is UIStackView }).count
     }
     
     private func getLeafViewCount() -> Int {
-        var count = 0
-        for view in views where !view.isKindOfClass(UIStackView) {
-            count++
-        }
-        return count
+		return views.filter({ !($0 is UIStackView) }).count
     }
     
-    //returns index of first non-node view in views
+    // returns index of first non-node view in views
     private func getEndOfNodeViewsIndex() -> Int {
-        for i in views.indices {
-            if !views[i].isKindOfClass(UIStackView) {
-                return i
-            }
-        }
-        
-        return views.count //if no leaves => end of array is end of views
+		return views.indices.first(where: { !views[$0].isKind(of: UIStackView.self) }) ?? views.count
+	 // if no leaves => end of array is end of views
     }
     
     private func getNewNodeView() -> UIStackView {
         let stackView = UIStackView()
 		stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.distribution = .FillEqually
+        stackView.distribution = .fillEqually
         return stackView
     }
-    
-    
-    
-    /*
+
     //MARK: Debug Helpers
-    */
     
     private func printTree(){
         for i in tree.indices {
             
-            print("\(getIDStringForIndex(i)), index: \(i), type: \(tree[i].type)")
+			print("\(getIDString(for: i)), index: \(i), type: \(tree[i].type)")
             
             if let child1 = tree[i].child1ViewIndex {
-                print(" Child 1: \(getIDStringForIndex(child1)), index: \(child1)")
+				print(" Child 1: \(getIDString(for: child1)), index: \(child1)")
             }
             
             if let child2 = tree[i].child2ViewIndex {
-                print(" Child 2: \(getIDStringForIndex(child2)), index: \(child2)")
+				print(" Child 2: \(getIDString(for: child2)), index: \(child2)")
             }
         }
     }
     
-    private func getIDStringForIndex(index: Int) -> String {
+    private func getIDString(for index: Int) -> String {
         
         switch tree[index].type {
-        case .Leaf:
+        case .leaf:
             return "v\(index - (tree.count / 2))"
-        case .Node:
+        case .node:
             return "s\(index)"
         }
     }
-    
-    
-    
-    private func printStackViewStructure(views: [UIView]){
-        print("--")
-        for i in views.indices{
-            if views[i].isKindOfClass(UIStackView){
-                let subContainer = (views[i] as! UIStackView)
-                print("\(i) - UIStackView - \(subContainer.hashValue)")
-                printStackViewStructureWithPrefix("-", views: subContainer.arrangedSubviews)
-            }else{
-                print("\(i) - UIView - \(views[i].hashValue) - \(views[i].backgroundColor?.description) - tag: \(views[i].tag)")
-            }
-        }
-        print("\n")
-    }
-    
-    private func printStackViewStructureWithPrefix(prefix: String, views: [UIView]){
+    private func printStackViewStructure(prefix: String = "", views: [UIView]){
         for view in views{
-            if view.isKindOfClass(UIStackView){
+			if view.isKind(of: UIStackView.self){
                 let subContainer = (view as! UIStackView)
-                print(prefix + "UIStackView - \(subContainer.hashValue)")
-                printStackViewStructureWithPrefix(prefix + "-", views: subContainer.arrangedSubviews)
+                print("\(prefix)UIStackView - \(subContainer.hashValue)")
+				printStackViewStructure(prefix: prefix + "-", views: subContainer.arrangedSubviews)
             }else{
-                print(prefix + "UIView - \(view.hashValue) - tag: \(view.tag)")
+                print("\(prefix)UIView - \(view.hashValue) - tag: \(view.tag)")
             }
         }
     }
-    
-    
-    
 }

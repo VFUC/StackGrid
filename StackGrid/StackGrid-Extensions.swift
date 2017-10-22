@@ -10,16 +10,14 @@ import UIKit
 
 extension UILayoutConstraintAxis{
     
-    //Returns the (logical) opposite of an axis
-    func inverse() -> UILayoutConstraintAxis{
-        
+    // Returns the (logical) opposite of an axis
+    func inverse() -> UILayoutConstraintAxis {
         switch self {
+        case .horizontal:
+            return .vertical
             
-        case .Horizontal:
-            return .Vertical
-            
-        case .Vertical:
-            return .Horizontal
+        case .vertical:
+            return .horizontal
         }
     }
 }

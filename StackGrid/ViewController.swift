@@ -18,8 +18,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .Plain, target: self, action: "addButton")
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "-", style: .Plain, target: self, action: "removeButton")
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(ViewController.addButton))
+		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "-", style: .plain, target: self, action: #selector(ViewController.removeButton))
         
         grid.setGridViews(createGradientViews(numOfViews: viewCount, color: purple))
     }
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         let interval : Float = Float(1) / Float(num)
         for i in 0..<num{
             let view = UIView()
-            view.backgroundColor = color.colorWithAlphaComponent(CGFloat(Float(i+1) * interval))
+            view.backgroundColor = color.withAlphaComponent(CGFloat(Float(i+1) * interval))
             views.append(view)
         }
         return views
@@ -44,10 +44,12 @@ class ViewController: UIViewController {
     
     
     func addButton(){
-        grid.setGridViews(createGradientViews(numOfViews: ++viewCount, color: purple))
+		viewCount = viewCount + 1
+        grid.setGridViews(createGradientViews(numOfViews: viewCount, color: purple))
     }
     
     func removeButton(){
-        grid.setGridViews(createGradientViews(numOfViews: --viewCount, color: purple))
+		viewCount = max(0, viewCount - 1) 
+        grid.setGridViews(createGradientViews(numOfViews: viewCount, color: purple))
     }
 }

@@ -14,8 +14,8 @@
 		722B1E591BA3F6CA0072E4B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722B1E571BA3F6CA0072E4B6 /* LaunchScreen.storyboard */; };
 		722B1E641BA3F6CA0072E4B6 /* StackGridTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B1E631BA3F6CA0072E4B6 /* StackGridTests.swift */; };
 		722B1E6F1BA3F6CA0072E4B6 /* StackGridUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B1E6E1BA3F6CA0072E4B6 /* StackGridUITests.swift */; };
-		722B1E7D1BA3F7840072E4B6 /* StackGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B1E7C1BA3F7840072E4B6 /* StackGrid.swift */; settings = {ASSET_TAGS = (); }; };
-		722B1E7F1BA3F8670072E4B6 /* StackGrid-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B1E7E1BA3F8670072E4B6 /* StackGrid-Extensions.swift */; settings = {ASSET_TAGS = (); }; };
+		722B1E7D1BA3F7840072E4B6 /* StackGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B1E7C1BA3F7840072E4B6 /* StackGrid.swift */; };
+		722B1E7F1BA3F8670072E4B6 /* StackGrid-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B1E7E1BA3F8670072E4B6 /* StackGrid-Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -410,6 +410,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vfuc.StackGrid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -421,6 +422,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vfuc.StackGrid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -491,6 +493,7 @@
 				722B1E751BA3F6CA0072E4B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		722B1E761BA3F6CA0072E4B6 /* Build configuration list for PBXNativeTarget "StackGridTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +502,7 @@
 				722B1E781BA3F6CA0072E4B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		722B1E791BA3F6CA0072E4B6 /* Build configuration list for PBXNativeTarget "StackGridUITests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +511,7 @@
 				722B1E7B1BA3F6CA0072E4B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
