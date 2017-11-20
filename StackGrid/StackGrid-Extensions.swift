@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UILayoutConstraintAxis{
+extension UILayoutConstraintAxis {
     
     // Returns the (logical) opposite of an axis
     func inverse() -> UILayoutConstraintAxis {

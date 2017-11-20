@@ -12,28 +12,12 @@
 		722B1E541BA3F6CA0072E4B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722B1E521BA3F6CA0072E4B6 /* Main.storyboard */; };
 		722B1E561BA3F6CA0072E4B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 722B1E551BA3F6CA0072E4B6 /* Assets.xcassets */; };
 		722B1E591BA3F6CA0072E4B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722B1E571BA3F6CA0072E4B6 /* LaunchScreen.storyboard */; };
-		722B1E641BA3F6CA0072E4B6 /* StackGridTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B1E631BA3F6CA0072E4B6 /* StackGridTests.swift */; };
-		722B1E6F1BA3F6CA0072E4B6 /* StackGridUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B1E6E1BA3F6CA0072E4B6 /* StackGridUITests.swift */; };
 		722B1E7D1BA3F7840072E4B6 /* StackGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B1E7C1BA3F7840072E4B6 /* StackGrid.swift */; };
 		722B1E7F1BA3F8670072E4B6 /* StackGrid-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B1E7E1BA3F8670072E4B6 /* StackGrid-Extensions.swift */; };
+		72DA11381FC362260070FD93 /* StackGrid_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 72DA112A1FC362260070FD93 /* StackGrid_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		72DA113F1FC362310070FD93 /* StackGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B1E7C1BA3F7840072E4B6 /* StackGrid.swift */; };
+		72DA11401FC362970070FD93 /* StackGrid-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B1E7E1BA3F8670072E4B6 /* StackGrid-Extensions.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		722B1E601BA3F6CA0072E4B6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 722B1E431BA3F6CA0072E4B6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 722B1E4A1BA3F6CA0072E4B6;
-			remoteInfo = StackGrid;
-		};
-		722B1E6B1BA3F6CA0072E4B6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 722B1E431BA3F6CA0072E4B6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 722B1E4A1BA3F6CA0072E4B6;
-			remoteInfo = StackGrid;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		722B1E4B1BA3F6CA0072E4B6 /* StackGrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackGrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,14 +27,11 @@
 		722B1E551BA3F6CA0072E4B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		722B1E581BA3F6CA0072E4B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		722B1E5A1BA3F6CA0072E4B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		722B1E5F1BA3F6CA0072E4B6 /* StackGridTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StackGridTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		722B1E631BA3F6CA0072E4B6 /* StackGridTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackGridTests.swift; sourceTree = "<group>"; };
-		722B1E651BA3F6CA0072E4B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		722B1E6A1BA3F6CA0072E4B6 /* StackGridUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StackGridUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		722B1E6E1BA3F6CA0072E4B6 /* StackGridUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackGridUITests.swift; sourceTree = "<group>"; };
-		722B1E701BA3F6CA0072E4B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		722B1E7C1BA3F7840072E4B6 /* StackGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackGrid.swift; sourceTree = "<group>"; };
 		722B1E7E1BA3F8670072E4B6 /* StackGrid-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StackGrid-Extensions.swift"; sourceTree = "<group>"; };
+		72DA11281FC362250070FD93 /* StackGrid_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StackGrid_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72DA112A1FC362260070FD93 /* StackGrid_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackGrid_iOS.h; sourceTree = "<group>"; };
+		72DA112B1FC362260070FD93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,14 +42,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		722B1E5C1BA3F6CA0072E4B6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		722B1E671BA3F6CA0072E4B6 /* Frameworks */ = {
+		72DA11241FC362250070FD93 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -82,8 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				722B1E4D1BA3F6CA0072E4B6 /* StackGrid */,
-				722B1E621BA3F6CA0072E4B6 /* StackGridTests */,
-				722B1E6D1BA3F6CA0072E4B6 /* StackGridUITests */,
+				72DA11291FC362250070FD93 /* StackGrid-iOS */,
 				722B1E4C1BA3F6CA0072E4B6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,8 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				722B1E4B1BA3F6CA0072E4B6 /* StackGrid.app */,
-				722B1E5F1BA3F6CA0072E4B6 /* StackGridTests.xctest */,
-				722B1E6A1BA3F6CA0072E4B6 /* StackGridUITests.xctest */,
+				72DA11281FC362250070FD93 /* StackGrid_iOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,25 +85,27 @@
 			path = StackGrid;
 			sourceTree = "<group>";
 		};
-		722B1E621BA3F6CA0072E4B6 /* StackGridTests */ = {
+		72DA11291FC362250070FD93 /* StackGrid-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				722B1E631BA3F6CA0072E4B6 /* StackGridTests.swift */,
-				722B1E651BA3F6CA0072E4B6 /* Info.plist */,
+				72DA112A1FC362260070FD93 /* StackGrid_iOS.h */,
+				72DA112B1FC362260070FD93 /* Info.plist */,
 			);
-			path = StackGridTests;
-			sourceTree = "<group>";
-		};
-		722B1E6D1BA3F6CA0072E4B6 /* StackGridUITests */ = {
-			isa = PBXGroup;
-			children = (
-				722B1E6E1BA3F6CA0072E4B6 /* StackGridUITests.swift */,
-				722B1E701BA3F6CA0072E4B6 /* Info.plist */,
-			);
-			path = StackGridUITests;
+			path = "StackGrid-iOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		72DA11251FC362250070FD93 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72DA11381FC362260070FD93 /* StackGrid_iOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		722B1E4A1BA3F6CA0072E4B6 /* StackGrid */ = {
@@ -151,41 +125,23 @@
 			productReference = 722B1E4B1BA3F6CA0072E4B6 /* StackGrid.app */;
 			productType = "com.apple.product-type.application";
 		};
-		722B1E5E1BA3F6CA0072E4B6 /* StackGridTests */ = {
+		72DA11271FC362250070FD93 /* StackGrid-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 722B1E761BA3F6CA0072E4B6 /* Build configuration list for PBXNativeTarget "StackGridTests" */;
+			buildConfigurationList = 72DA113D1FC362260070FD93 /* Build configuration list for PBXNativeTarget "StackGrid-iOS" */;
 			buildPhases = (
-				722B1E5B1BA3F6CA0072E4B6 /* Sources */,
-				722B1E5C1BA3F6CA0072E4B6 /* Frameworks */,
-				722B1E5D1BA3F6CA0072E4B6 /* Resources */,
+				72DA11231FC362250070FD93 /* Sources */,
+				72DA11241FC362250070FD93 /* Frameworks */,
+				72DA11251FC362250070FD93 /* Headers */,
+				72DA11261FC362250070FD93 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				722B1E611BA3F6CA0072E4B6 /* PBXTargetDependency */,
 			);
-			name = StackGridTests;
-			productName = StackGridTests;
-			productReference = 722B1E5F1BA3F6CA0072E4B6 /* StackGridTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		722B1E691BA3F6CA0072E4B6 /* StackGridUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 722B1E791BA3F6CA0072E4B6 /* Build configuration list for PBXNativeTarget "StackGridUITests" */;
-			buildPhases = (
-				722B1E661BA3F6CA0072E4B6 /* Sources */,
-				722B1E671BA3F6CA0072E4B6 /* Frameworks */,
-				722B1E681BA3F6CA0072E4B6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				722B1E6C1BA3F6CA0072E4B6 /* PBXTargetDependency */,
-			);
-			name = StackGridUITests;
-			productName = StackGridUITests;
-			productReference = 722B1E6A1BA3F6CA0072E4B6 /* StackGridUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			name = "StackGrid-iOS";
+			productName = "StackGrid-iOS";
+			productReference = 72DA11281FC362250070FD93 /* StackGrid_iOS.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -193,6 +149,7 @@
 		722B1E431BA3F6CA0072E4B6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = VFUC;
 				TargetAttributes = {
@@ -200,13 +157,9 @@
 						CreatedOnToolsVersion = 7.0;
 						LastSwiftMigration = 0900;
 					};
-					722B1E5E1BA3F6CA0072E4B6 = {
-						CreatedOnToolsVersion = 7.0;
-						TestTargetID = 722B1E4A1BA3F6CA0072E4B6;
-					};
-					722B1E691BA3F6CA0072E4B6 = {
-						CreatedOnToolsVersion = 7.0;
-						TestTargetID = 722B1E4A1BA3F6CA0072E4B6;
+					72DA11271FC362250070FD93 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -224,8 +177,7 @@
 			projectRoot = "";
 			targets = (
 				722B1E4A1BA3F6CA0072E4B6 /* StackGrid */,
-				722B1E5E1BA3F6CA0072E4B6 /* StackGridTests */,
-				722B1E691BA3F6CA0072E4B6 /* StackGridUITests */,
+				72DA11271FC362250070FD93 /* StackGrid-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -241,14 +193,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		722B1E5D1BA3F6CA0072E4B6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		722B1E681BA3F6CA0072E4B6 /* Resources */ = {
+		72DA11261FC362250070FD93 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,36 +214,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		722B1E5B1BA3F6CA0072E4B6 /* Sources */ = {
+		72DA11231FC362250070FD93 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				722B1E641BA3F6CA0072E4B6 /* StackGridTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		722B1E661BA3F6CA0072E4B6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				722B1E6F1BA3F6CA0072E4B6 /* StackGridUITests.swift in Sources */,
+				72DA11401FC362970070FD93 /* StackGrid-Extensions.swift in Sources */,
+				72DA113F1FC362310070FD93 /* StackGrid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		722B1E611BA3F6CA0072E4B6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 722B1E4A1BA3F6CA0072E4B6 /* StackGrid */;
-			targetProxy = 722B1E601BA3F6CA0072E4B6 /* PBXContainerItemProxy */;
-		};
-		722B1E6C1BA3F6CA0072E4B6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 722B1E4A1BA3F6CA0072E4B6 /* StackGrid */;
-			targetProxy = 722B1E6B1BA3F6CA0072E4B6 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		722B1E521BA3F6CA0072E4B6 /* Main.storyboard */ = {
@@ -446,55 +371,64 @@
 			};
 			name = Release;
 		};
-		722B1E771BA3F6CA0072E4B6 /* Debug */ = {
+		72DA11391FC362260070FD93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = StackGridTests/Info.plist;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "StackGrid-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vfuc.StackGridTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "lol.jonas.StackGrid-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StackGrid.app/StackGrid";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		722B1E781BA3F6CA0072E4B6 /* Release */ = {
+		72DA113A1FC362260070FD93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = StackGridTests/Info.plist;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "StackGrid-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vfuc.StackGridTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "lol.jonas.StackGrid-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StackGrid.app/StackGrid";
-			};
-			name = Release;
-		};
-		722B1E7A1BA3F6CA0072E4B6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = StackGridUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vfuc.StackGridUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = StackGrid;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		722B1E7B1BA3F6CA0072E4B6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = StackGridUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vfuc.StackGridUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = StackGrid;
-				USES_XCTRUNNER = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -519,20 +453,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		722B1E761BA3F6CA0072E4B6 /* Build configuration list for PBXNativeTarget "StackGridTests" */ = {
+		72DA113D1FC362260070FD93 /* Build configuration list for PBXNativeTarget "StackGrid-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				722B1E771BA3F6CA0072E4B6 /* Debug */,
-				722B1E781BA3F6CA0072E4B6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		722B1E791BA3F6CA0072E4B6 /* Build configuration list for PBXNativeTarget "StackGridUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				722B1E7A1BA3F6CA0072E4B6 /* Debug */,
-				722B1E7B1BA3F6CA0072E4B6 /* Release */,
+				72DA11391FC362260070FD93 /* Debug */,
+				72DA113A1FC362260070FD93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

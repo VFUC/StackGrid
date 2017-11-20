@@ -23,7 +23,7 @@ enum TreeElementType {
 	case leaf
 }
 
-class StackGrid: UIView {
+public class StackGrid: UIView {
 
     // MARK: Properties
     
@@ -48,7 +48,7 @@ class StackGrid: UIView {
     
 
     // MARK: Methods
-	override func draw(_ rect: CGRect) {
+	public override func draw(_ rect: CGRect) {
 		super.draw(rect)
         self.addSubview(rootNode)
 		pinToEdges(view: rootNode)
@@ -58,7 +58,7 @@ class StackGrid: UIView {
 	Set orientation of the root node's axis
 	- parameter axis The axis to apply to the root node
 	*/
-	func setRootAxis(axis: UILayoutConstraintAxis){
+	public func setRootAxis(axis: UILayoutConstraintAxis){
 		rootNode.axis = axis
 		if viewsToDisplay.count >= 0 {
 			buildTree(forNodeCount: viewsToDisplay.count)
@@ -71,7 +71,7 @@ class StackGrid: UIView {
     This overwrites all current views.
     - parameter views The views to be displayed
     */
-    func setGridViews(_ views: [UIView]) {
+    public func setGridViews(_ views: [UIView]) {
         viewsToDisplay = views
     }
     
@@ -80,7 +80,7 @@ class StackGrid: UIView {
     This appends a view to the end of the current views
     - parameter view The view to be added
     */
-    func addGridView(_ view: UIView){
+    public func addGridView(_ view: UIView){
         viewsToDisplay.append(view)
     }
     
@@ -89,7 +89,7 @@ class StackGrid: UIView {
     This appends multiple views to the end of the current views
     - parameter views The views to be added
     */
-    func addGridViews(_ views: [UIView]) {
+    public func addGridViews(_ views: [UIView]) {
         for view in views {
             addGridView(view)
         }
@@ -99,7 +99,7 @@ class StackGrid: UIView {
     Remove view from grid
     - index Specify which view should be removed
     */
-	func removeGridView(at index: Int) {
+	public func removeGridView(at index: Int) {
         guard index >= 0 && index<viewsToDisplay.count else {
             print("Error: removeGridViewAtIndex called with index out of bounds, aborting")
             return
@@ -108,16 +108,14 @@ class StackGrid: UIView {
     }
 
 	/// Removes last view from grid
-    func removeLastGridView() {
+    public func removeLastGridView() {
         guard viewsToDisplay.count > 0 else {
             print("Error: removeLastGridView called on empty grid")
             return
         }
         viewsToDisplay.removeLast()
     }
-    
 
-    
     private func pinToEdges(view: UIView) {
         view.translatesAutoresizingMaskIntoConstraints = false
         
@@ -157,8 +155,6 @@ class StackGrid: UIView {
             multiplier: 1,
             constant: 0))
     }
-    
-    
     
     /*
     //MARK: Layout Construction
@@ -401,9 +397,7 @@ class StackGrid: UIView {
 			
 		}
     }
-    
-    
-    
+
     private func getLayer(for index: Int) -> Int{
         var layer = 0
         var i = 0
@@ -414,7 +408,6 @@ class StackGrid: UIView {
         }
         return layer
     }
-    
     
     //determines whether all leaves are same layer
     private func allLeavesSameLayer() -> Bool {
