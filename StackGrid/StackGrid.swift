@@ -58,7 +58,7 @@ public class StackGrid: UIView {
 	Set orientation of the root node's axis
 	- parameter axis The axis to apply to the root node
 	*/
-	public func setRootAxis(axis: UILayoutConstraintAxis){
+	public func setRootAxis(axis: NSLayoutConstraint.Axis){
 		rootNode.axis = axis
 		if viewsToDisplay.count >= 0 {
 			buildTree(forNodeCount: viewsToDisplay.count)
@@ -211,7 +211,7 @@ public class StackGrid: UIView {
 			}
 
 			guard tree[i].set else {
-				print("ERROR - Couldn't attach node with index \(index) to other nodes")
+				print("ERROR - Couldn't attach node with index \(i) to other nodes")
 				return
 			}
         }
@@ -386,7 +386,7 @@ public class StackGrid: UIView {
 			//check order of childViews
 			if childViews.count == 2 { //doesn't make sense with 1 view
 				let childView = childViews[0]
-				let subViewIndex = nodeView.arrangedSubviews.index(of: childView) //if the two indices are equal, the views are in order
+				let subViewIndex = nodeView.arrangedSubviews.firstIndex(of: childView) //if the two indices are equal, the views are in order
 				
 				if subViewIndex != 0 { //not in order => swap
 					let view0 = nodeView.arrangedSubviews[0]

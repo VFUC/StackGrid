@@ -8,10 +8,10 @@
 
 import UIKit
 
-extension UILayoutConstraintAxis {
+extension NSLayoutConstraint.Axis {
     
     // Returns the (logical) opposite of an axis
-    func inverse() -> UILayoutConstraintAxis {
+    func inverse() -> NSLayoutConstraint.Axis {
         switch self {
         case .horizontal:
             return .vertical
